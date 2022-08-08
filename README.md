@@ -1,5 +1,6 @@
 # OptofMRI5HT
-This is the project about optogenetic fMRI stimulating serotonin neurons.
+Code repository for the project about optogenetic fMRI stimulating dorsal raphe serotonin neurons.
 
 
-1. 
+# Reference
+1. Hamada H.T., Abe Y.,  Takata N., Taira M, Tanaka F.K., and Doya K. Optogenetic activation of dorsal raphe serotonin neurons induces a brain-wide response in reward network. bioXiv.
