@@ -14,7 +14,7 @@ The experiment is composed of four sessions.
 ## Data
 - 1. Time Series of each session
 - 2. beta values of each session
-- 3. 28 Regions of Interest (ROIs)
+- 3. ROIs: 28 Regions of Interest (ROIs)
 
 # Reference
 1. Hamada H.T., Abe Y.,  Takata N., Taira M, Tanaka F.K., and Doya K. Optogenetic activation of dorsal raphe serotonin neurons induces a brain-wide response in reward network. bioXiv.
