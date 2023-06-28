@@ -17,39 +17,39 @@ The experiment is composed of four sessions.
 - 3. ROIs: 28 Regions of Interest (ROIs)
 
 # Programs
-- Allen Brain Atlas
+1. Allen Brain Atlas
 
 ![AllenAtlasCreation](https://user-images.githubusercontent.com/2386591/186835611-04562f9d-765d-4a94-9f04-854ccd046280.png)
 
-AllenBrainAtlas/AllenAtlasNorm.r
-AllenBrainAtlas/TemplateNorm.r 
+- AllenBrainAtlas/AllenAtlasNorm.r
+- AllenBrainAtlas/TemplateNorm.r 
 
-- Figure 2b & Figure 5a
+2. Figure 2b & Figure 5a
 
-main_COPE_session1_TestandPlot.m
+- main_COPE_session1_TestandPlot.m
 
-- Figure 3c
+3. Figure 3c
 
-main_COPE_session34_TestandPlot.m
+- main_COPE_session34_TestandPlot.m
 
-- Figure 4b-c, Figure 5b-d, Table 3 & Supplementary Table TS3
+4. Figure 4b-c, Figure 5b-d, Table 3 & Supplementary Table TS3
 
-main_corr5HTprojAndCOPE.m
+- main_corr5HTprojAndCOPE.m
 
-- Supplementay Figure S4
+5. Supplementary Figure S4
 
 
-- Supplementary Figure S8 a-b & S9
+6. Supplementary Figure S8 a-b & S9
 
-supp_consistencyBetweenPhasicAndRepli.m
+- supp_consistencyBetweenPhasicAndRepli.m
 
-- Supplementary Figure S8 c-d
+7. Supplementary Figure S8 c-d
 
-supp_peaktimingANDBOLDconsistency.m
+- supp_peaktimingANDBOLDconsistency.m
 
-- Supplementary Figure S11 
+8. Supplementary Figure S11 
 
-- Supplementary Figure S13
+9. Supplementary Figure S13
 
 5HTR_correlation_plot.ipynb
 
