@@ -24,7 +24,7 @@ The experiment is composed of four sessions.
 - AllenBrainAtlas/AllenAtlasNorm.r
 - AllenBrainAtlas/TemplateNorm.r 
 
-2. Figure 2b & Figure 5a
+2. Figure 2b, Figure 5a, Supplementary Figure S4
 
 - main_COPE_session1_TestandPlot.m
 
@@ -32,26 +32,36 @@ The experiment is composed of four sessions.
 
 - main_COPE_session34_TestandPlot.m
 
-4. Figure 4b-c, Figure 5b-d, Table 3 & Supplementary Table TS3
+4. Figure 3d & Supplementary Figure S11
+
+- visualizeAllTimeSeriesSession3vs4
+  
+5. Figure 4b-c, Figure 5b-d, Table 3 & Supplementary Table TS3
 
 - main_corr5HTprojAndCOPE.m
 
-5. Supplementary Figure S4
+5. Supplementary Figure S5 & S6
 
+- visualizeAllTimeSeriesSession1st.m
 
-6. Supplementary Figure S8 a-b & S9
+6. Supplementary Figure S7
 
-- supp_consistencyBetweenPhasicAndRepli.m
+- supp_contrastBetweenSession1vs2.m
 
-7. Supplementary Figure S8 c-d
+7. Supplementary Figure S8 a-b & S9
+
+- supp_consistencyBetweenSession1AndSession2.m
+
+8. Supplementary Figure S8 c-d
 
 - supp_peaktimingANDBOLDconsistency.m
 
-8. Supplementary Figure S11 
-
 9. Supplementary Figure S13
 
-5HTR_correlation_plot.ipynb
+- 5HTR_correlation_plot.ipynb
+
+- Appendix
+motion_artefacts/
 
 # Reference
 1. Hamada H.T., Abe Y.,  Takata N., Taira M, Tanaka F.K., and Doya K. Optogenetic activation of dorsal raphe serotonin neurons induces brain-wide activation, including reward-related circuits. bioXiv. https://www.biorxiv.org/content/10.1101/2022.08.07.503074v1
