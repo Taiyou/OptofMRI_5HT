@@ -1,6 +1,12 @@
 # OptofMRI5HT
-Code repository for the project about optogenetic fMRI stimulating dorsal raphe serotonin neurons.
+This is the code repository for the project about optogenetic fMRI stimulating dorsal raphe serotonin neurons [Hamada et al., 2022].
 
+Findings of the works
+1. Functional map of serotonergic activation by optogenetics, including reward-related network
+2. General anesthetics, isoflurane, reverses brain-wide activation by DRN stimulation
+3. Functional map was correlated with structural density.
+4. The expression of 5-HT receptors and structural density can explain the functional maps.
+5. General anesthetics may change receptor response.
 
 ## Experiments
 The experiment is composed of four sessions.
