@@ -23,6 +23,12 @@ The experiment is composed of four sessions.
 - 3. ROIs: 28 Regions of Interest (ROIs)
 
 # Programs
+
+```MATLAB
+% check if all codes are functional.
+run_allcodes
+```
+
 1. Allen Brain Atlas
 
 ![AllenAtlasCreation](https://user-images.githubusercontent.com/2386591/186835611-04562f9d-765d-4a94-9f04-854ccd046280.png)
