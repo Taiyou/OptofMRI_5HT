@@ -1,4 +1,7 @@
+clear all; close all;
 
+visualizeAllTimeSeriesSession1st
+visualizeAllTimeSeriesSession2nd
 
 color = zeros(2, 3);
 blue  = [0, 1, 1];
@@ -6,17 +9,15 @@ black = [0, 0.2, 0.2];
 color1(1,:) = blue;
 color1(2,:) = black;
 
-clear val sortedval groups roi
-
 ROIpath           = '/ROIs';
 ROIlist           = makeList(fullfile(pwd, ROIpath), 'ID*.nii');
 roipath           = '/ROIs';
 [ROIname]         = ExtROIname(fullfile(pwd,roipath));
 nROI = length(ROIname);
 
-val                 = (maxTIMES1_bphasic)*100;
+val                 = (maxTIMES1_bsession1)*100;
 [nSUB, nROI]        = size(val);
-[sorted,peakINDICE]     = sort(mean(maxTIMES1_bphasic));
+[sorted,peakINDICE]     = sort(mean(maxTIMES1_bsession1));
 sortedval1           = val(:,peakINDICE);
 sortedval1           = reshape(transpose(sortedval1), nSUB*nROI, 1);
 sortROIname         = ROIname(peakINDICE);
@@ -31,9 +32,9 @@ end
 
 clear val sortedval groups roi
 clear val2 sortedval2 groups2 roi2
-val                 = (maxTIMES1_bmix1st)*100;
+val                 = (maxTIMES1_bsession2)*100;
 [nSUB, nROI]        = size(val);
-[sorted,peakINDICE] = sort(mean(maxTIMES1_bphasic));
+[sorted,peakINDICE] = sort(mean(maxTIMES1_bsession1));
 sortedval2          = val(:,peakINDICE);
 sortedval2          = reshape(transpose(sortedval2), nSUB*nROI, 1);
 sortROIname         = ROIname(peakINDICE);
@@ -52,8 +53,9 @@ COPE.groups = horzcat(groups1, groups2);
 
 %% 3. Plot results
 
-savename = 'Phasic_BOLD_firstVSsecond';
+savename = 'session1_BOLD_firstVSsecond';
 savepath = fullfile(pwd,'/figures/FigureS8cd');
+mkdir(savepath)
 
 % plot violinplot
 % plotting
@@ -88,9 +90,9 @@ gf.export('file_name', savename, 'export_path', savepath, 'file_type', 'png')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear val sortedval groups roi
 
-val1                 = (maxTIMES1id_bphasic)-20;
+val1                 = (maxTIMES1id_bsession1)-20;
 [nSUB, nROI]         = size(val1);
-[sorted,INDICE]      = sort(mean(maxTIMES1id_bphasic-20));
+[sorted,INDICE]      = sort(mean(maxTIMES1id_bsession1-20));
 sortedval1           = val1(:,INDICE);
 sortedval1           = reshape(transpose(sortedval1), nSUB*nROI, 1);
 sortROIname          = ROIname(INDICE);
@@ -107,7 +109,7 @@ end
 clear val sortedval groups roi
 clear val2 sortedval2 groups2 roi2
 
-val2                 = (maxTIMES1id_bmix1st)-20;
+val2                 = (maxTIMES1id_bsession2)-20;
 [nSUB, nROI]         = size(val2);
 sortedval2           = val2(:,INDICE);
 sortedval2           = reshape(transpose(sortedval2), nSUB*nROI, 1);
@@ -127,7 +129,7 @@ beta.val    = vertcat(sortedval1, sortedval2);
 beta.groups = horzcat(groups1, groups2);
 
 %% 3. Plot results
-savename = 'Phasic_BOLD_firstvssecond_peaktiming_mix1st';
+savename = 'session1_BOLD_firstvssecond_peaktiming_session2';
 
 % plot violinplot
 % plotting

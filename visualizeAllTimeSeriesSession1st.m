@@ -90,7 +90,7 @@ colors = {'r', 'b'};
 % visualize and save the cont group
 % Supplementary Figure S6
 colors = {'k', 'g'};
-[AUC_TPH_Y, AUC_CONT_Y, meanTIME_TPH_Y_session1, meanTIME_CONT_Y_session1, maxTIMES_TPH_Y, maxTIMES_CONT_Y, Pvalus_TPHvsCONT_y] = visualizeBOLDresponses(BOLDresponse_tphy, BOLDresponse_conty, ROIname, resultpath_vsy, colors,'different', stim);
+[AUC_TPH_Y, AUC_CONT_Y, meanTIME_TPH_Y_session1, meanTIME_CONT_Y_session1, maxTIMES_TPH_Y, maxTIMES_CONT_Y, Pvalus_TPHvsCONT_y] = notvisualizeBOLDresponses(BOLDresponse_tphy, BOLDresponse_conty, ROIname, resultpath_vsy, colors,'different', stim);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % contrast between mean values of BOLD signals

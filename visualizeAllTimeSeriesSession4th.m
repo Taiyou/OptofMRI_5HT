@@ -30,29 +30,29 @@ roipath   = fullfile(pwd, '/ROIs');
 [ROIname] = ExtROIname(roipath);
 
 % result path
-resultpath_tph = '/Volumes/HD-ADU3/tphskk/Results/Anesthesia/Anesthesia2nd_TS/TPH';
-resultpath_cont = '/Volumes/HD-ADU3/tphskk/Results/Anesthesia/Anesthesia2nd_TS/Cont';
-resultpath_vsb = '/Volumes/HD-ADU3/tphskk/Results/Anesthesia/Anesthesia2nd_TS/TPHvsCont_blue';
-resultpath_vsy = '/Volumes/HD-ADU3/tphskk/Results/Anesthesia/Anesthesia2nd_TS/TPHvsCont_yellow';
-mkdir(resultpath_tph);
-mkdir(resultpath_cont);
-mkdir(resultpath_vsb);
-mkdir(resultpath_vsy);
+resultpath_tph_session4  = fullfile(pwd, '/figures/FigureS5/session4/TPH');
+resultpath_cont_session4 = fullfile(pwd, '/figures/FigureS5/session4/CONT');
+resultpath_vsb_session4  = fullfile(pwd, '/figures/FigureS5/session4/TPHvsCont_blue');
+resultpath_vsy_session4  = fullfile(pwd, '/figures/FigureS5/session4/TPHvsCont_yellow');
+mkdir(resultpath_tph_session4);
+mkdir(resultpath_cont_session4);
+mkdir(resultpath_vsb_session4);
+mkdir(resultpath_vsy_session4)
 
 % visualize and save the tph group
 colors = {'g', 'b'};
-[AUC_TPH_B_session4, AUC_TPH_Y_session4, meanTIME_TPH_B_session4, meanTIME_TPH_Y_session4,  maxTIMES_TPH_B_session4, maxTIMES_TPH_Y_session4, Pvalus_TPH_BvsY_session4] = notvisualizeBOLDresponses(BOLDresponse_tphb, BOLDresponse_tphy, ROIname, resultpath_tph,colors, 'same', stim);
+[AUC_TPH_B_session4, AUC_TPH_Y_session4, meanTIME_TPH_B_session4, meanTIME_TPH_Y_session4,  maxTIMES_TPH_B_session4, maxTIMES_TPH_Y_session4, Pvalus_TPH_BvsY_session4] = notvisualizeBOLDresponses(BOLDresponse_tphb, BOLDresponse_tphy, ROIname, resultpath_tph_session4,colors, 'same', stim);
 % visualize and save the cont group
 colors = {'k', 'r'};
-[AUC_CONT_B_session4, AUC_CONT_Y_session4, meanTIME_CONT_B_session4, meanTIME_CONT_Y_session4, maxTIMES_CONT_B_session4, maxTIMES_CONT_Y_session4, Pvalus_CONT_BvsY_session4]  = notvisualizeBOLDresponses(BOLDresponse_contb, BOLDresponse_conty, ROIname, resultpath_cont, colors, 'same', stim);
+[AUC_CONT_B_session4, AUC_CONT_Y_session4, meanTIME_CONT_B_session4, meanTIME_CONT_Y_session4, maxTIMES_CONT_B_session4, maxTIMES_CONT_Y_session4, Pvalus_CONT_BvsY_session4]  = notvisualizeBOLDresponses(BOLDresponse_contb, BOLDresponse_conty, ROIname, resultpath_cont_session4, colors, 'same', stim);
 
 % visualize and save the tph vs cont, blue stimulation
 colors = {'r', 'b'};
-[AUC_TPH_B_session4, AUC_CONT_B_session4, meanTIME_TPH_B_session4, meanTIME_CONT_B_session4, maxTIMES_TPH_B_session4, maxTIMES_CONT_B_session4, Pvalus_TPHvsCONT_b_session4]  = notvisualizeBOLDresponses(BOLDresponse_tphb, BOLDresponse_contb, ROIname, resultpath_vsb, colors, 'different', stim);
+[AUC_TPH_B_session4, AUC_CONT_B_session4, meanTIME_TPH_B_session4, meanTIME_CONT_B_session4, maxTIMES_TPH_B_session4, maxTIMES_CONT_B_session4, Pvalus_TPHvsCONT_b_session4]  = notvisualizeBOLDresponses(BOLDresponse_tphb, BOLDresponse_contb, ROIname, resultpath_vsb_session4, colors, 'different', stim);
 
 % visualize and save the cont group
 colors = {'k', 'g'};
-[AUC_TPH_Y_session4, AUC_CONT_Y_session4, meanTIME_TPH_Y_session4, meanTIME_CONT_Y_session4, maxTIMES_TPH_Y_session4, maxTIMES_CONT_Y_session4, Pvalus_TPHvsCONT_y_session4] = notvisualizeBOLDresponses(BOLDresponse_tphy, BOLDresponse_conty, ROIname, resultpath_vsy, colors,'different', stim);
+[AUC_TPH_Y_session4, AUC_CONT_Y_session4, meanTIME_TPH_Y_session4, meanTIME_CONT_Y_session4, maxTIMES_TPH_Y_session4, maxTIMES_CONT_Y_session4, Pvalus_TPHvsCONT_y_session4] = notvisualizeBOLDresponses(BOLDresponse_tphy, BOLDresponse_conty, ROIname, resultpath_vsy_session4, colors,'different', stim);
 
 close all;
 
