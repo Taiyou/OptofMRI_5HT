@@ -1,4 +1,4 @@
-# OptofMRI5HT
+# OptofMRI5HT [Hamada et al., bioRxiv, 2022]
 This is the code repository for the project about optogenetic fMRI stimulating dorsal raphe serotonin neurons [Hamada et al., 2022].
 
 Findings of the works
