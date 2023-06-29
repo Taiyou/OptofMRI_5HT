@@ -83,7 +83,7 @@ for iroi = 1:nROI,
     set(gcf,'Position',[100 100 800 800]);
     set(gca, 'FontSize', 28, 'LineWidth', 5);
     xlabel('Time(seconds)'); ylabel('%BOLD');
-    ylim([-2 2]);
+    %ylim([-2 2]);
     box off;
     
     xticks([0 20 40 60 80 100 120])
