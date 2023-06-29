@@ -1,4 +1,10 @@
 % This program is to calculate and plot the results of COPE between tphssk and control.
+%
+% Figure 3 & Supplementary Figure S4
+%
+%
+% by Hiro Taiyo Hamada, Araya Inc.
+
 clear all;
 close all;
 
@@ -8,36 +14,36 @@ datafolder1 = '/data/COPEResults/session3';
 datafolder2 = '/data/COPEResults/session4';
 
 % tphskk stimulation, Anesthesia1
-tphskkblue_ane1 = 'tphB_ane1.mat';
-tphskkblue_ane1 = load(fullfile(pwd, datafolder1, tphskkblue_ane1));
-tphskkyellow_ane1 = 'tphY_ane1.mat';
-tphskkyellow_ane1 = load(fullfile(pwd, datafolder1, tphskkyellow_ane1));
+tphskkblue_session3 = 'tphB_session3.mat';
+tphskkblue_session3 = load(fullfile(pwd, datafolder1, tphskkblue_session3));
+tphskkyellow_session3 = 'tphY_session3.mat';
+tphskkyellow_session3 = load(fullfile(pwd, datafolder1, tphskkyellow_session3));
 % tphskk stimulation, Anesthesia2
-tphskkblue_ane2 = 'tphB_ane2.mat';
-tphskkblue_ane2 = load(fullfile(pwd, datafolder2, tphskkblue_ane2));
-tphskkyellow_ane2 = 'tphY_ane2.mat';
-tphskkyellow_ane2 = load(fullfile(pwd, datafolder2, tphskkyellow_ane2));
+tphskkblue_session4 = 'tphB_session4.mat';
+tphskkblue_session4 = load(fullfile(pwd, datafolder2, tphskkblue_session4));
+tphskkyellow_session4 = 'tphY_session4.mat';
+tphskkyellow_session4 = load(fullfile(pwd, datafolder2, tphskkyellow_session4));
 
 % WT stimulation, Anesthesia1
-contblue_ane1 = 'CONTB_ane1.mat';
-contblue_ane1 = load(fullfile(pwd, datafolder1, contblue_ane1));
-contyellow_ane1 = 'CONTY_ane1.mat';
-contyellow_ane1 = load(fullfile(pwd, datafolder1, contyellow_ane1));
+contblue_session3 = 'CONTB_session3.mat';
+contblue_session3 = load(fullfile(pwd, datafolder1, contblue_session3));
+contyellow_session3 = 'CONTY_session3.mat';
+contyellow_session3 = load(fullfile(pwd, datafolder1, contyellow_session3));
 % WT stimulation, Anesthesia1
-contblue_ane2 = 'CONTB_ane2.mat';
-contblue_ane2 = load(fullfile(pwd, datafolder2, contblue_ane2));
-contyellow_ane2 = 'CONTY_ane2.mat';
-contyellow_ane2 = load(fullfile(pwd, datafolder2, contyellow_ane2));
+contblue_session4 = 'CONTB_session4.mat';
+contblue_session4 = load(fullfile(pwd, datafolder2, contblue_session4));
+contyellow_session4 = 'CONTY_session4.mat';
+contyellow_session4 = load(fullfile(pwd, datafolder2, contyellow_session4));
 
 % values for tphskk val
-tphskkAneshtesia_cont = (tphskkblue_ane1.COPE_Ane1_tph_blue - tphskkyellow_ane1.COPE_Ane1_tph_yellow);
-tphskkAwake_cont = (tphskkblue_ane2.COPE_Ane2_tph_blue - tphskkyellow_ane2.COPE_Ane2_tph_yellow);
+tphskkAneshtesia_cont = (tphskkblue_session3.COPE_session3_tph_blue - tphskkyellow_session3.COPE_session3_tph_yellow);
+tphskkAwake_cont = (tphskkblue_session4.COPE_session4_tph_blue - tphskkyellow_session4.COPE_session4_tph_yellow);
 % values for cont val
-contAneshtesia_cont = (contblue_ane1.COPE_Ane1_cont_blue - contyellow_ane1.COPE_Ane1_cont_yellow);
-contAwake_cont = (contblue_ane2.COPE_Ane2_cont_blue - contyellow_ane2.COPE_Ane2_cont_yellow); 
+contAneshtesia_cont = (contblue_session3.COPE_session3_cont_blue - contyellow_session3.COPE_session3_cont_yellow);
+contAwake_cont = (contblue_session4.COPE_session4_cont_blue - contyellow_session4.COPE_session4_cont_yellow); 
 
-%tphskkval_cont = tphskkval_ane1 - tphskkval_ane2;
-%contval_cont= contval_ane1 - contval_ane2;
+%tphskkval_cont = tphskkval_session3 - tphskkval_session4;
+%contval_cont= contval_session3 - contval_session4;
 
 % reshape the data points for violinplot
 [ROWtph,COLtph] = size(tphskkAneshtesia_cont);
@@ -110,15 +116,15 @@ COPE2.groups = groups2;
 % print the results.
 
 % 
-COPE_anesthesia = (tphskkblue_ane1.COPE_Ane1_tph_blue - tphskkyellow_ane1.COPE_Ane1_tph_yellow);
-COPE_awake = (tphskkblue_ane2.COPE_Ane2_tph_blue - tphskkyellow_ane2.COPE_Ane2_tph_yellow);
+COPE_anesthesia = (tphskkblue_session3.COPE_session3_tph_blue - tphskkyellow_session3.COPE_session3_tph_yellow);
+COPE_awake = (tphskkblue_session4.COPE_session4_tph_blue - tphskkyellow_session4.COPE_session4_tph_yellow);
 [Pvalues_cope1] = COPEComp(COPE_anesthesia,COPE_awake, ROIname);
 
 fprintf('Statistically different beta values between session 3 and session4');
 ROIname(find(fdr_bh(Pvalues_cope1)))
 
-COPE2_anesthesia = (contblue_ane1.COPE_Ane1_cont_blue - contyellow_ane1.COPE_Ane1_cont_yellow);
-COPE2_awake = (contblue_ane2.COPE_Ane2_cont_blue - contyellow_ane2.COPE_Ane2_cont_yellow); 
+COPE2_anesthesia = (contblue_session3.COPE_session3_cont_blue - contyellow_session3.COPE_session3_cont_yellow);
+COPE2_awake = (contblue_session4.COPE_session4_cont_blue - contyellow_session4.COPE_session4_cont_yellow); 
 [Pvalues_cope2] = COPEComp(COPE2_anesthesia, COPE2_awake, ROIname);
 
 %lot violinplot

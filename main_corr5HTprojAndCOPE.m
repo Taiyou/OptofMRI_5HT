@@ -1,5 +1,12 @@
+% This program is to calculate and plot the results of COPE between tphssk and control.
+%
+% Figure 4b-c, Figure 5b-d, Table 3 & Supplementary Table TS3
+%
+%
 % by Hiro Taiyo Hamada, 2020/12/17
-close all; clear all;
+
+close all;
+clear all;
 
 % 1. extraction of 5HT receptors
 niftidirect = fullfile(pwd, '/5HTR');
@@ -25,65 +32,65 @@ normalized_HTExpSignals = (HTExpSignals-min(HTExpSignals))./max(HTExpSignals-min
 
 % load COPE 
 COPEpath = fullfile(pwd, '/data');
-load(fullfile(COPEpath, 'COPE_Phasic_tph_blue.mat'));
-load(fullfile(COPEpath, 'tphB_ane1.mat'));
-load(fullfile(COPEpath, 'tphB_ane2.mat'));
-load(fullfile(COPEpath, 'tphB_mix1.mat'));
+load(fullfile(COPEpath, 'COPE_session1_tph_blue.mat'));
+load(fullfile(COPEpath, 'tphB_session3.mat'));
+load(fullfile(COPEpath, 'tphB_session4.mat'));
+load(fullfile(COPEpath, 'tphB_session2.mat'));
 %
-load(fullfile(COPEpath, 'COPE_Phasic_tph_yellow.mat'));
-load(fullfile(COPEpath, 'tphY_ane1.mat'));
-load(fullfile(COPEpath, 'tphY_ane2.mat'));
-load(fullfile(COPEpath, 'tphY_mix1.mat'));
+load(fullfile(COPEpath, 'COPE_session1_tph_yellow.mat'));
+load(fullfile(COPEpath, 'tphY_session3.mat'));
+load(fullfile(COPEpath, 'tphY_session4.mat'));
+load(fullfile(COPEpath, 'tphY_session2.mat'));
 
-meanCOPE_phasic_tph_blue   = transpose(mean(COPE_Phasic_tph_blue));
-meanCOPE_phasic_tph_yellow = transpose(mean(COPE_Phasic_tph_yellow));
-meanCOPE_mix1st_tph_blue   = transpose(mean(COPE_MIX1_tph_blue));
-meanCOPE_mix1st_tph_yellow = transpose(mean(COPE_MIX1_tph_yellow));
-meanCOPE_ane1_tph_blue     = transpose(mean(COPE_Ane1_tph_blue));
-meanCOPE_ane2_tph_blue     = transpose(mean(COPE_Ane2_tph_blue));
+meanCOPE_session1_tph_blue   = transpose(mean(COPE_session1_tph_blue));
+meanCOPE_session1_tph_yellow = transpose(mean(COPE_session1_tph_yellow));
+meanCOPE_session2st_tph_blue   = transpose(mean(COPE_session2_tph_blue));
+meanCOPE_session2st_tph_yellow = transpose(mean(COPE_session2_tph_yellow));
+meanCOPE_session3_tph_blue     = transpose(mean(COPE_session3_tph_blue));
+meanCOPE_session4_tph_blue     = transpose(mean(COPE_session4_tph_blue));
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1.1. 5HT projection density and Awake, first
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-index = find(~isnan(meanCOPE_phasic_tph_blue) .* ~isnan(normalized_HTExpSignals(:, 6)));
+index = find(~isnan(meanCOPE_session1_tph_blue) .* ~isnan(normalized_HTExpSignals(:, 6)));
 val1  = normalized_HTExpSignals(index, 6);
-val2  = meanCOPE_phasic_tph_blue(index);
+val2  = meanCOPE_session1_tph_blue(index);
 %plotCORR(val1, val2, label, stim, COPE_texts);
 [r(1), pval(1)] = corr(val1, val2);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1.2. 5HT projection density and Awake, second
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-index = find(~isnan(meanCOPE_mix1st_tph_blue) .* ~isnan(normalized_HTExpSignals(:, 6)));
+index = find(~isnan(meanCOPE_session2st_tph_blue) .* ~isnan(normalized_HTExpSignals(:, 6)));
 val1  = normalized_HTExpSignals(index, 6);
-val2  = meanCOPE_mix1st_tph_blue(index);
+val2  = meanCOPE_session2st_tph_blue(index);
 %plotCORR(val1, val2, label, stim, COPE_texts);
 [r(2), pval(2)] = corr(val1, val2);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1.3. 5HT projection density and Anesthesia, third
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-index = find(~isnan(meanCOPE_ane1_tph_blue) .* ~isnan(normalized_HTExpSignals(:, 6)));
+index = find(~isnan(meanCOPE_session3_tph_blue) .* ~isnan(normalized_HTExpSignals(:, 6)));
 val1  = normalized_HTExpSignals(index, 6);
-val2  = meanCOPE_ane1_tph_blue(index);
+val2  = meanCOPE_session3_tph_blue(index);
 %plotCORR(val1, val2, label, stim, COPE_texts);
 [r(3), pval(3)] = corr(val1, val2);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1.4. 5HT projection density and Awake, fourth
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-index = find(~isnan(meanCOPE_ane2_tph_blue) .* ~isnan(normalized_HTExpSignals(:, 6)));
+index = find(~isnan(meanCOPE_session4_tph_blue) .* ~isnan(normalized_HTExpSignals(:, 6)));
 val1  = normalized_HTExpSignals(index, 6);
-val2  = meanCOPE_ane2_tph_blue(index);
+val2  = meanCOPE_session4_tph_blue(index);
 %plotCORR(val1, val2, label, stim, COPE_texts);
 [r(4), pval(4)] = corr(val1, val2);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1.5. 5HT projection density and Awake, yellow, first
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-index = find(~isnan(meanCOPE_phasic_tph_yellow) .* ~isnan(normalized_HTExpSignals(:, 6)));
+index = find(~isnan(meanCOPE_session1_tph_yellow) .* ~isnan(normalized_HTExpSignals(:, 6)));
 val1  = normalized_HTExpSignals(index, 6);
-val2  = meanCOPE_phasic_tph_yellow(index);
+val2  = meanCOPE_session1_tph_yellow(index);
 %plotCORR(val1, val2, label, stim, COPE_texts);
 [r(5), pval(5)] = corr(val1, val2);
 
@@ -91,9 +98,9 @@ val2  = meanCOPE_phasic_tph_yellow(index);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 1.6. 5HT projection density and Awake, yellow, first
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-index = find(~isnan(meanCOPE_mix1st_tph_yellow) .* ~isnan(normalized_HTExpSignals(:, 6)));
+index = find(~isnan(meanCOPE_session2st_tph_yellow) .* ~isnan(normalized_HTExpSignals(:, 6)));
 val1  = normalized_HTExpSignals(index, 6);
-val2  = meanCOPE_mix1st_tph_yellow (index);
+val2  = meanCOPE_session2st_tph_yellow (index);
 %plotCORR(val1, val2, label, stim, COPE_texts);
 [r(6), pval(6)] = corr(val1, val2);
 
@@ -112,9 +119,9 @@ COPE_texts(4) = {savepath};
 count = 1;
 clear COPE
 
-index = find(~isnan(meanCOPE_phasic_tph_blue).* ~isnan(normalized_HTExpSignals(:, 6)));
-val1  = meanCOPE_phasic_tph_blue(index);
-val2  = meanCOPE_phasic_tph_yellow(index);
+index = find(~isnan(meanCOPE_session1_tph_blue).* ~isnan(normalized_HTExpSignals(:, 6)));
+val1  = meanCOPE_session1_tph_blue(index);
+val2  = meanCOPE_session1_tph_yellow(index);
 val3  = normalized_HTExpSignals(index, 6);
 
 nROI = length(val1);
@@ -169,9 +176,9 @@ COPE_texts(4) = {savepath};
 count = 1;
 clear COPE
 
-index = find(~isnan(meanCOPE_mix1st_tph_blue).* ~isnan(normalized_HTExpSignals(:, 6)));
-val1  = meanCOPE_mix1st_tph_blue(index);
-val2  = meanCOPE_mix1st_tph_yellow(index);
+index = find(~isnan(meanCOPE_session2st_tph_blue).* ~isnan(normalized_HTExpSignals(:, 6)));
+val1  = meanCOPE_session2st_tph_blue(index);
+val2  = meanCOPE_session2st_tph_yellow(index);
 val3  = normalized_HTExpSignals(index, 6);
 
 nROI = length(val1);
@@ -221,9 +228,9 @@ COPE_texts(4) = {savepath};
 count = 1;
 clear COPE
 
-index = find(~isnan(meanCOPE_ane1_tph_blue).* ~isnan(normalized_HTExpSignals(:, 6)));
-val1  = meanCOPE_ane1_tph_blue(index);
-val2  = meanCOPE_ane2_tph_blue(index);
+index = find(~isnan(meanCOPE_session3_tph_blue).* ~isnan(normalized_HTExpSignals(:, 6)));
+val1  = meanCOPE_session3_tph_blue(index);
+val2  = meanCOPE_session4_tph_blue(index);
 val3  = normalized_HTExpSignals(index, 6);
 
 nROI = length(val1);
@@ -270,17 +277,17 @@ g.export('file_name', COPE_texts{3},'export_path', COPE_texts{4}, 'file_type', '
 clear color
 
 % multiple regression based on projection density and gene exp.
-index = find(~isnan(meanCOPE_ane2_tph_blue).* ~isnan(normalized_HTExpSignals(:, 4)));
+index = find(~isnan(meanCOPE_session4_tph_blue).* ~isnan(normalized_HTExpSignals(:, 4)));
 val1 = normalized_HTExpSignals(index, 1);
 val2 = normalized_HTExpSignals(index, 2);
 val3 = normalized_HTExpSignals(index, 3);
 val4 = normalized_HTExpSignals(index, 4);
 val5 = normalized_HTExpSignals(index, 5);
 val6 = normalized_HTExpSignals(index, 6);
-COPE1 = meanCOPE_phasic_tph_blue(index);
-COPE2 = meanCOPE_mix1st_tph_blue(index);
-COPE3 = meanCOPE_ane1_tph_blue(index);
-COPE4 = meanCOPE_ane2_tph_blue(index);
+COPE1 = meanCOPE_session1_tph_blue(index);
+COPE2 = meanCOPE_session2st_tph_blue(index);
+COPE3 = meanCOPE_session3_tph_blue(index);
+COPE4 = meanCOPE_session4_tph_blue(index);
 
 % correlation map between 
 
@@ -293,10 +300,10 @@ YFIT = b1(1) + val1*b1(2) + val2*b1(3) + val3*b1(4) + val4*b1(5) + val5*b1(6) + 
 [r3(3), pval3(3)] = corr(YFIT, COPE3)
 [r3(4), pval3(4)] = corr(YFIT, COPE4)
 
-% COPE predictor based on phasic
+% COPE predictor based on session1
 COPE_texts(1) = {'fit model'};
 COPE_texts(2) = {'beta (Session1)'};
-COPE_texts(3) = {'beta_corr_predictor_phasic'};
+COPE_texts(3) = {'beta_corr_predictor_session1'};
 COPE_texts(4) = {savepath};
 label = {'blue stim'};
 stim  = {'green'};
@@ -306,10 +313,10 @@ mazenta = [1, 0, 1];
 color1(1,:) = blue;
 color2(1,:) = mazenta;
 
-index = find(~isnan(meanCOPE_phasic_tph_blue));
+index = find(~isnan(meanCOPE_session1_tph_blue));
 plotCORR(YFIT, COPE1, label, stim, COPE_texts, color1);
 
-% COPE predictor based on mix1st
+% COPE predictor based on session2st
 COPE_texts(1) = {'fit model'};
 COPE_texts(2) = {'beta (Session2)'};
 COPE_texts(3) = {'beta_corr_predictor_session2'};
@@ -342,18 +349,18 @@ X1 = [val1 val2 val3 val4 val5 val6 ones(size(COPE2))];
 
 regreLen = 7;
 statsLen = 4;
-index = find(~isnan(meanCOPE_ane2_tph_blue).* ~isnan(normalized_HTExpSignals(:, 4)));
+index = find(~isnan(meanCOPE_session4_tph_blue).* ~isnan(normalized_HTExpSignals(:, 4)));
 
 % session 1-4
-[nSubSession1, ~] = size(COPE_Phasic_tph_blue);
+[nSubSession1, ~] = size(COPE_session1_tph_blue);
 b1 = zeros(regreLen, nSubSession1);
 stats1 = zeros(statsLen, nSubSession1);
 
-[nSubSession2, ~] = size(COPE_MIX1_tph_blue);
+[nSubSession2, ~] = size(COPE_session2_tph_blue);
 b2 = zeros(regreLen, nSubSession2);
 stats2 = zeros(statsLen, nSubSession2);
 
-[nSubSession3, ~] = size(COPE_Ane1_tph_blue);
+[nSubSession3, ~] = size(COPE_session3_tph_blue);
 b3 = zeros(regreLen, nSubSession3);
 stats3 = zeros(statsLen, nSubSession3);
 % receptor, structural density, intercept
@@ -361,64 +368,64 @@ X1 = [val1 val2 val3 val4 val5 val6 ones(size(COPE2))];
 
 regreLen = 7;
 statsLen = 4;
-index = find(~isnan(meanCOPE_ane2_tph_blue).* ~isnan(normalized_HTExpSignals(:, 4)));
+index = find(~isnan(meanCOPE_session4_tph_blue).* ~isnan(normalized_HTExpSignals(:, 4)));
 
 % session 1-4
-[nSubSession1, ~] = size(COPE_Phasic_tph_blue);
+[nSubSession1, ~] = size(COPE_session1_tph_blue);
 b1 = zeros(regreLen, nSubSession1);
 stats1 = zeros(statsLen, nSubSession1);
 
-[nSubSession2, ~] = size(COPE_MIX1_tph_blue);
+[nSubSession2, ~] = size(COPE_session2_tph_blue);
 b2 = zeros(regreLen, nSubSession2);
 stats2 = zeros(statsLen, nSubSession2);
 
-[nSubSession3, ~] = size(COPE_Ane1_tph_blue);
+[nSubSession3, ~] = size(COPE_session3_tph_blue);
 b3 = zeros(regreLen, nSubSession3);
 stats3 = zeros(statsLen, nSubSession3);
 
-[nSubSession4, ~] = size(COPE_Ane2_tph_blue);
+[nSubSession4, ~] = size(COPE_session4_tph_blue);
 b4 = zeros(regreLen, nSubSession4);
 stats4 = zeros(statsLen, nSubSession4);
 
 % session 1
 for ii = 1:nSubSession1,
-    cope1_temp = transpose(COPE_Phasic_tph_blue(ii,index));
+    cope1_temp = transpose(COPE_session1_tph_blue(ii,index));
     [b1(:,ii),~,~,~,stats1(:,ii)] = regress(cope1_temp, X1);
 end
 % session 2
 for ii = 1:nSubSession2,
-    cope2_temp = transpose(COPE_MIX1_tph_blue(ii,index));
+    cope2_temp = transpose(COPE_session2_tph_blue(ii,index));
     [b2(:,ii),~,~,~,stats2(:,ii)] = regress(cope2_temp, X1);
 end
 % session 3
 for ii = 1:nSubSession3,
-    cope3_temp = transpose(COPE_Ane1_tph_blue(ii,index));
+    cope3_temp = transpose(COPE_session3_tph_blue(ii,index));
     [b3(:,ii),~,~,~,stats3(:,ii)] = regress(cope3_temp, X1);
 end
 % session 4
 for ii = 1:nSubSession4,
-    cope4_temp = transpose(COPE_Ane2_tph_blue(ii,index));
+    cope4_temp = transpose(COPE_session4_tph_blue(ii,index));
     [b4(:,ii),~,~,~,stats4(:,ii)] = regress(cope4_temp, X1);
 end
 
 % session 1
 for ii = 1:nSubSession1,
-    cope1_temp = transpose(COPE_Phasic_tph_blue(ii,index));
+    cope1_temp = transpose(COPE_session1_tph_blue(ii,index));
     [b1(:,ii),~,~,~,stats1(:,ii)] = regress(cope1_temp, X1);
 end
 % session 2
 for ii = 1:nSubSession2,
-    cope2_temp = transpose(COPE_MIX1_tph_blue(ii,index));
+    cope2_temp = transpose(COPE_session2_tph_blue(ii,index));
     [b2(:,ii),~,~,~,stats2(:,ii)] = regress(cope2_temp, X1);
 end
 % session 3
 for ii = 1:nSubSession3,
-    cope3_temp = transpose(COPE_Ane1_tph_blue(ii,index));
+    cope3_temp = transpose(COPE_session3_tph_blue(ii,index));
     [b3(:,ii),~,~,~,stats3(:,ii)] = regress(cope3_temp, X1);
 end
 % session 4
 for ii = 1:nSubSession4,
-    cope4_temp = transpose(COPE_Ane2_tph_blue(ii,index));
+    cope4_temp = transpose(COPE_session4_tph_blue(ii,index));
     [b4(:,ii),~,~,~,stats4(:,ii)] = regress(cope4_temp, X1);
 end
 
