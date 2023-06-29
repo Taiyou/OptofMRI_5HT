@@ -63,14 +63,14 @@ stim = 1:5;
 
 % visualize and save the tph group, 1st and 2nd days, blue stimulation
 colors = {'b', 'm'};
-[AUC_TPH_B_ane1st, AUC_TPH_B_ane2nd, meanTIME_TPH_B_ane1st, meanTIME_TPH_B_ane2nd,  maxTIMES_TPH_B_ane1st, maxTIMES_TPH_B_ane2nd, Pvalus_TPH_B1stvs2nd_ane] = visualizeBOLDresponses(BOLDresponse_tphb1, BOLDresponse_tphb2, ROIname, resultpath_vsb, colors, 'same', stim);
+[AUC_TPH_B_session3, AUC_TPH_B_session4, meanTIME_TPH_B_session3, meanTIME_TPH_B_session4,  maxTIMES_TPH_B_session3, maxTIMES_TPH_B_session4, Pvalus_TPH_B1stvs2nd_ane] = visualizeBOLDresponses(BOLDresponse_tphb1, BOLDresponse_tphb2, ROIname, resultpath_vsb, colors, 'same', stim);
 % visualize and save the tph group, 1st and 2nd days, yellow stimulation
 colors = {[0.7294, 0.3333, 0.8275], [0.9216,0.7294,0.1020]};
-[AUC_TPH_Y_ane1st, AUC_CONT_Y_ane2nd, meanTIME_TPH_Y_ane1st, meanTIME_TPH_Y_ane2nd, maxTIMES_TPH_Y_ane1st, maxTIMES_TPH_Y_ane2nd,  Pvalus_TPH_Y1stvs2nd_ane] = notvisualizeBOLDresponses(BOLDresponse_tphy1, BOLDresponse_tphy2, ROIname, resultpath_vsy, colors,'same', stim);
+[AUC_TPH_Y_session3, AUC_CONT_Y_session4, meanTIME_TPH_Y_session3, meanTIME_TPH_Y_session4, maxTIMES_TPH_Y_session3, maxTIMES_TPH_Y_session4,  Pvalus_TPH_Y1stvs2nd_ane] = notvisualizeBOLDresponses(BOLDresponse_tphy1, BOLDresponse_tphy2, ROIname, resultpath_vsy, colors,'same', stim);
 
 
 %% visualization of statistical results.
 % mean BOLD signals,
-[sig_meanB, pvals_meanB] = ttest(meanTIME_TPH_B_ane1st, meanTIME_TPH_B_ane2nd);
+[sig_meanB, pvals_meanB] = ttest(meanTIME_TPH_B_session3, meanTIME_TPH_B_session4);
 [MC_sig_meanBOLD_B, ~, ~, MC_pval_meanBOLD_B] = fdr_bh(pvals_meanB)
 ROIname(MC_sig_meanBOLD_B)

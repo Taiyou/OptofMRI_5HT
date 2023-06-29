@@ -30,72 +30,72 @@ roipath   = fullfile(pwd, '/ROIs');
 
 % result path
 % result path
-resultpath_tph = '/Volumes/HD-ADU3/tphskk/Results/Anesthesia/Anesthesia1st_TS/TPH';
-resultpath_cont = '/Volumes/HD-ADU3/tphskk/Results/Anesthesia/Anesthesia1st_TS/Cont';
-resultpath_vsb = '/Volumes/HD-ADU3/tphskk/Results/Anesthesia/Anesthesia1st_TS/TPHvsCont_blue';
-resultpath_vsy = '/Volumes/HD-ADU3/tphskk/Results/Anesthesia/Anesthesia1st_TS/TPHvsCont_yellow';
-mkdir(resultpath_tph);
-mkdir(resultpath_cont);
-mkdir(resultpath_vsb);
-mkdir(resultpath_vsy);
+resultpath_tph_session3  = fullfile(pwd, '/figures/FigureS5/session3/TPH');
+resultpath_cont_session3 = fullfile(pwd, '/figures/FigureS5/session3/CONT');
+resultpath_vsb_session3  = fullfile(pwd, '/figures/FigureS5/session3/TPHvsCont_blue');
+resultpath_vsy_session3  = fullfile(pwd, '/figures/FigureS5/session3/TPHvsCont_yellow');
+mkdir(resultpath_tph_session3);
+mkdir(resultpath_cont_session3);
+mkdir(resultpath_vsb_session3);
+mkdir(resultpath_vsy_session3);
 
 stim = 1:5;
 
 % visualize and save the tph group
 colors = {'g', 'b'};
-[AUC_TPH_B_ane1st, AUC_TPH_Y_ane1st, meanTIME_TPH_B_ane1st, meanTIME_TPH_Y_ane1st,  maxTIMES_TPH_B_ane1st, maxTIMES_TPH_Y_ane1st, Pvalus_TPH_BvsY_ane1st] = notvisualizeBOLDresponses(BOLDresponse_tphb, BOLDresponse_tphy, ROIname, resultpath_tph,colors, 'same', stim);
+[AUC_TPH_B_session3, AUC_TPH_Y_session3, meanTIME_TPH_B_session3, meanTIME_TPH_Y_session3,  maxTIMES_TPH_B_session3, maxTIMES_TPH_Y_session3, Pvalus_TPH_BvsY_session3] = notvisualizeBOLDresponses(BOLDresponse_tphb, BOLDresponse_tphy, ROIname, resultpath_tph_session3,colors, 'same', stim);
 % visualize and save the cont group
 colors = {'k', 'r'};
-[AUC_CONT_B_ane1st, AUC_CONT_Y_ane1st, meanTIME_CONT_B_ane1st, meanTIME_CONT_Y_ane1st, maxTIMES_CONT_B_ane1st, maxTIMES_CONT_Y_ane1st, Pvalus_CONT_BvsY_ane1st]  = notvisualizeBOLDresponses(BOLDresponse_contb, BOLDresponse_conty, ROIname, resultpath_cont, colors, 'same', stim);
+[AUC_CONT_B_session3, AUC_CONT_Y_session3, meanTIME_CONT_B_session3, meanTIME_CONT_Y_session3, maxTIMES_CONT_B_session3, maxTIMES_CONT_Y_session3, Pvalus_CONT_BvsY_session3]  = notvisualizeBOLDresponses(BOLDresponse_contb, BOLDresponse_conty, ROIname, resultpath_cont_session3, colors, 'same', stim);
 
 % visualize and save the tph vs cont, blue stimulation
 colors = {'r', 'b'};
-[AUC_TPH_B_ane1st, AUC_CONT_B_ane1st, meanTIME_TPH_B_ane1st, meanTIME_CONT_B_ane1st, maxTIMES_TPH_B_ane1st, maxTIMES_CONT_B_ane1st, Pvalus_TPHvsCONT_b_ane1st]  = notvisualizeBOLDresponses(BOLDresponse_tphb, BOLDresponse_contb, ROIname, resultpath_vsb, colors, 'different', stim);
+[AUC_TPH_B_session3, AUC_CONT_B_session3, meanTIME_TPH_B_session3, meanTIME_CONT_B_session3, maxTIMES_TPH_B_session3, maxTIMES_CONT_B_session3, Pvalus_TPHvsCONT_b_session3]  = notvisualizeBOLDresponses(BOLDresponse_tphb, BOLDresponse_contb, ROIname, resultpath_vsb_session3, colors, 'different', stim);
 
 % visualize and save the cont group
 colors = {'k', 'g'};
-[AUC_TPH_Y_ane1st, AUC_CONT_Y_ane1st, meanTIME_TPH_Y_ane1st, meanTIME_CONT_Y_ane1st, maxTIMES_TPH_Y_ane1st, maxTIMES_CONT_Y_ane1st, Pvalus_TPHvsCONT_y_ane1st] = notvisualizeBOLDresponses(BOLDresponse_tphy, BOLDresponse_conty, ROIname, resultpath_vsy, colors,'different', stim);
+[AUC_TPH_Y_session3, AUC_CONT_Y_session3, meanTIME_TPH_Y_session3, meanTIME_CONT_Y_session3, maxTIMES_TPH_Y_session3, maxTIMES_CONT_Y_session3, Pvalus_TPHvsCONT_y_session3] = notvisualizeBOLDresponses(BOLDresponse_tphy, BOLDresponse_conty, ROIname, resultpath_vsy_session3, colors,'different', stim);
 
 close all;
 
 %% visualization of statistical results.
 % AUC of %BOLD signals,
-[sig_AUC, pvals_AUC]     = ttest(AUC_TPH_B_ane1st - AUC_TPH_Y_ane1st);
+[sig_AUC, pvals_AUC]     = ttest(AUC_TPH_B_session3 - AUC_TPH_Y_session3);
 MC_pvals_AUC             = fdr_bh(pvals_AUC);
 
 % mean BOLD signals,
-[sig_meanB, pvals_meanB] = ttest2(meanTIME_TPH_B_ane1st,meanTIME_CONT_B_ane1st);
+[sig_meanB, pvals_meanB] = ttest2(meanTIME_TPH_B_session3,meanTIME_CONT_B_session3);
 MC_pvals_meanBOLD        = fdr_bh(pvals_meanB);
 
 % Peaks BOLD signals, 
-[sig_peakB, pvals_peakB] = ttest(maxTIMES_TPH_B_ane1st - maxTIMES_TPH_Y_ane1st);
+[sig_peakB, pvals_peakB] = ttest(maxTIMES_TPH_B_session3 - maxTIMES_TPH_Y_session3);
 MC_pvals_peakBOLD        = fdr_bh(pvals_peakB);
 
 % %BOLD signals,
-[sig_AUC, pvals_AUC]     = ttest(AUC_CONT_B_ane1st - AUC_CONT_Y_ane1st);
+[sig_AUC, pvals_AUC]     = ttest(AUC_CONT_B_session3 - AUC_CONT_Y_session3);
 MC_pvals_AUC             = fdr_bh(pvals_AUC);
 
 % AUC BOLD signals,
-[sig_meanB, pvals_meanB] = ttest(meanTIME_CONT_B_ane1st - meanTIME_CONT_Y_ane1st);
+[sig_meanB, pvals_meanB] = ttest(meanTIME_CONT_B_session3 - meanTIME_CONT_Y_session3);
 MC_pvals_meanBOLD        = fdr_bh(pvals_meanB);
 
 % Peaks BOLD signals, 
-[sig_peakB, pvals_peakB] = ttest(maxTIMES_CONT_B_ane1st - maxTIMES_CONT_Y_ane1st);
+[sig_peakB, pvals_peakB] = ttest(maxTIMES_CONT_B_session3 - maxTIMES_CONT_Y_session3);
 
 % visualization of statistical tests on 
 timedur = 40;
 
 % maxAUC and maxTIMES, B and Y, transgenic
-[maxTIMES1_bane1st, maxTIMES2_yane1st, maxTIMES1id_bane1st, maxTIMES2id_yane1st, maxAUC1_bane1st, maxAUC2_yane1st, maxAUC1id_bane1st, maxAUC2nd_yane1st] = peaksearchBOLDresponses2(BOLDresponse_tphb, BOLDresponse_tphy, ROIname, timedur, stim);
+[maxTIMES1_bsession3, maxTIMES2_ysession3, maxTIMES1id_bsession3, maxTIMES2id_ysession3, maxAUC1_bsession3, maxAUC2_ysession3, maxAUC1id_bsession3, maxAUC2nd_ysession3] = peaksearchBOLDresponses2(BOLDresponse_tphb, BOLDresponse_tphy, ROIname, timedur, stim);
 % maxAUC and maxTIMES, B and Y, control
-[maxTIMES1_CONTane1st, maxTIMES2_CONTane1st, maxTIMES1id_CONTane1st, maxTIMES2id_CONTane1st, maxAUC1_CONTane1st, maxAUC2_CONTane1st, maxAUC1id_CONTane1st, maxAUC2nd_CONTane1st] = peaksearchBOLDresponses2(BOLDresponse_contb, BOLDresponse_conty, ROIname, timedur, stim);
+[maxTIMES1_CONTsession3, maxTIMES2_CONTsession3, maxTIMES1id_CONTsession3, maxTIMES2id_CONTsession3, maxAUC1_CONTsession3, maxAUC2_CONTsession3, maxAUC1id_CONTsession3, maxAUC2nd_CONTsession3] = peaksearchBOLDresponses2(BOLDresponse_contb, BOLDresponse_conty, ROIname, timedur, stim);
 
 % correlation between peaks of bold and timing of BOLD, 
-[r_PeakandTiming_b, pval_b] = corrcoef(mean(maxTIMES1_bane1st), mean(maxTIMES1id_bane1st));
+[r_PeakandTiming_b, pval_b] = corrcoef(mean(maxTIMES1_bsession3), mean(maxTIMES1id_bsession3));
 fprintf('correlation between peaks and timing: r = %f \n', r_PeakandTiming_b(1,2));
 fprintf('correlation between peaks and timing: pval = %f \n', pval_b(1,2));
 
-[r_PeakandTiming_y, pval_y] = corrcoef(mean(maxTIMES2_yane1st), mean(maxTIMES2id_yane1st));
+[r_PeakandTiming_y, pval_y] = corrcoef(mean(maxTIMES2_ysession3), mean(maxTIMES2id_ysession3));
 fprintf('correlation between peaks and timing: r = %f \n', r_PeakandTiming_y(1,2));
 fprintf('correlation between peaks and timing: pval = %f \n', pval_y(1,2));
 

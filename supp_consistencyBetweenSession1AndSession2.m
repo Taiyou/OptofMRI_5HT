@@ -14,41 +14,41 @@ visualizeAllTimeSeriesSession4th
 % peaks of BOLD responses
 % BOLD replication vs first
 % blue stim transgenic
-[cor(1), pval(1)] = corr(transpose(mean(maxTIMES1_bmix1st)), transpose(mean(maxTIMES1_bphasic)))
+[cor(1), pval(1)] = corr(transpose(mean(maxTIMES1_bsession2)), transpose(mean(maxTIMES1_bsession1)))
 % yellow stim transgenic
-[cor(2), pval(2)] = corr(transpose(mean(maxTIMES2_ymix1st)), transpose(mean(maxTIMES2_yphasic)))
+[cor(2), pval(2)] = corr(transpose(mean(maxTIMES2_ysession2)), transpose(mean(maxTIMES2_ysession1)))
 % blue stim control
-[cor(3), pval(3)] = corr(transpose(mean(maxTIMES1_CONTmix1st)), transpose(mean(maxTIMES1_CONTphasic)))
+[cor(3), pval(3)] = corr(transpose(mean(maxTIMES1_CONTsession2)), transpose(mean(maxTIMES1_CONTsession1)))
 % yellow stim control
-[cor(4), pval(4)] = corr(transpose(mean(maxTIMES2_CONTmix1st)), transpose(mean(maxTIMES2_CONTphasic)))
+[cor(4), pval(4)] = corr(transpose(mean(maxTIMES2_CONTsession2)), transpose(mean(maxTIMES2_CONTsession1)))
 
 % timing of peak BOLD responses
 % BOLD replication vs first
 % blue stim transgenic
-[cor(5), pval(5)] = corr(transpose(mean(maxTIMES1id_bmix1st)), transpose(mean(maxTIMES1id_bphasic)))
+[cor(5), pval(5)] = corr(transpose(mean(maxTIMES1id_bsession2)), transpose(mean(maxTIMES1id_bsession1)))
 % yellow stim transgenic
-[cor(6), pval(6)] = corr(transpose(mean(maxTIMES2id_ymix1st)), transpose(mean(maxTIMES2id_yphasic)))
+[cor(6), pval(6)] = corr(transpose(mean(maxTIMES2id_ysession2)), transpose(mean(maxTIMES2id_ysession1)))
 % blue stim control
-[cor(7), pval(7)] = corr(transpose(mean(maxTIMES1id_CONTmix1st)), transpose(mean(maxTIMES1id_CONTphasic)))
+[cor(7), pval(7)] = corr(transpose(mean(maxTIMES1id_CONTsession2)), transpose(mean(maxTIMES1id_CONTsession1)))
 % yellow stim control
-[cor(8), pval(8)] = corr(transpose(mean(maxTIMES2id_CONTmix1st)), transpose(mean(maxTIMES2id_CONTphasic)))
+[cor(8), pval(8)] = corr(transpose(mean(maxTIMES2id_CONTsession2)), transpose(mean(maxTIMES2id_CONTsession1)))
 
 %% preparation for the visuzalition transgenic peak
 count = 1;
 clear peakBOLD
-nROI = length(mean(maxTIMES1_bmix1st));
+nROI = length(mean(maxTIMES1_bsession2));
 datapath = fullfile(pwd, 'figures/FigureS8');
 
 % blue stim transgenic
-peakBOLD.first(count:nROI, 1)     = transpose(mean(maxTIMES1_bphasic))*100;
-peakBOLD.second(count:nROI, 1)    = transpose(mean(maxTIMES1_bmix1st))*100;
+peakBOLD.first(count:nROI, 1)     = transpose(mean(maxTIMES1_bsession1))*100;
+peakBOLD.second(count:nROI, 1)    = transpose(mean(maxTIMES1_bsession2))*100;
 peakBOLD.labels(count:nROI, 1)    = {'blue stim'};
 peakBOLD.stim(count:nROI, 1)      = {'blue'};
 peakBOLD.color(count:nROI, 1)     = 4;
 count = nROI;
 % yellow stim transgenic
-peakBOLD.first(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2_yphasic))*100;
-peakBOLD.second(count+1:nROI+count, 1) = transpose(mean(maxTIMES2_ymix1st))*100;
+peakBOLD.first(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2_ysession1))*100;
+peakBOLD.second(count+1:nROI+count, 1) = transpose(mean(maxTIMES2_ysession2))*100;
 peakBOLD.labels(count+1:nROI+count, 1) = {'yellow stim'};
 peakBOLD.stim(count+1:nROI+count, 1)   = {'yell'};
 peakBOLD.color(count+1:nROI+count, 1)  = 2;
@@ -75,22 +75,22 @@ g.set_text_options('base_size', 42, 'label_scaling', 1, 'legend_scaling', 1);
 g.set_color_options('map','matlab');
 figure('Position', [100 100 2000 800]);
 g.draw();
-g.export('file_name', 'peak_transgenicB_PhasicVSRepli','export_path', datapath, 'file_type', 'png');
+g.export('file_name', 'peak_transgenicB_session1VSRepli','export_path', datapath, 'file_type', 'png');
 
 %% preparation for the visuzalition transgenic peak
 count = 1;
 clear peakBOLD
-nROI = length(mean(maxTIMES1_bmix1st));
+nROI = length(mean(maxTIMES1_bsession2));
 
 % blue stim transgenic
-peakBOLD.firstloc(count:nROI, 1)     = transpose(mean(maxTIMES1id_bphasic))-20;
-peakBOLD.secondloc(count:nROI, 1)    = transpose(mean(maxTIMES1id_bmix1st))-20;
+peakBOLD.firstloc(count:nROI, 1)     = transpose(mean(maxTIMES1id_bsession1))-20;
+peakBOLD.secondloc(count:nROI, 1)    = transpose(mean(maxTIMES1id_bsession2))-20;
 peakBOLD.labels(count:nROI, 1)    = {'blue stim'};
 peakBOLD.stim(count:nROI, 1)      = {'blue'};
 count = nROI;
 % yellow stim transgenic
-peakBOLD.firstloc(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2id_yphasic))-20;
-peakBOLD.secondloc(count+1:nROI+count, 1) = transpose(mean(maxTIMES2id_ymix1st))-20;
+peakBOLD.firstloc(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2id_ysession1))-20;
+peakBOLD.secondloc(count+1:nROI+count, 1) = transpose(mean(maxTIMES2id_ysession2))-20;
 peakBOLD.labels(count+1:nROI+count, 1) = {'yellow stim'};
 peakBOLD.stim(count+1:nROI+count, 1)   = {'yell'};
 
@@ -113,23 +113,23 @@ g.set_text_options('base_size', 35, 'label_scaling', 1, 'legend_scaling', 1);
 g.set_color_options('map','matlab');
 figure('Position', [100 100 1800 800]);
 g.draw();
-g.export('file_name', 'peak_transgenicY_PhasicVSRepli','export_path', datapath, 'file_type', 'png');
+g.export('file_name', 'peak_transgenicY_session1VSRepli','export_path', datapath, 'file_type', 'png');
 
 
 %% preparation for visualization of WT.
 count = 1;
 clear peakBOLD
-nROI = length(mean(maxTIMES1_bmix1st));
+nROI = length(mean(maxTIMES1_bsession2));
 
 % blue stim control
-peakBOLD.first(count:nROI, 1)  = transpose(mean(maxTIMES1_CONTphasic))*100;
-peakBOLD.second(count:nROI, 1) = transpose(mean(maxTIMES1_CONTmix1st))*100;
+peakBOLD.first(count:nROI, 1)  = transpose(mean(maxTIMES1_CONTsession1))*100;
+peakBOLD.second(count:nROI, 1) = transpose(mean(maxTIMES1_CONTsession2))*100;
 peakBOLD.labels(count:nROI, 1) = {'blue stim'};
 peakBOLD.stim(count:nROI, 1)   = {'blue'};
 count = nROI;
 % yellow stim control
-peakBOLD.first(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2_CONTphasic))*100;
-peakBOLD.second(count+1:nROI+count, 1) = transpose(mean(maxTIMES2_CONTmix1st))*100;
+peakBOLD.first(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2_CONTsession1))*100;
+peakBOLD.second(count+1:nROI+count, 1) = transpose(mean(maxTIMES2_CONTsession2))*100;
 peakBOLD.labels(count+1:nROI+count, 1) = {'yellow stim'};
 peakBOLD.stim(count+1:nROI+count, 1)   = {'yell'}
 
@@ -151,23 +151,23 @@ g.set_text_options('base_size', 42, 'label_scaling', 1, 'legend_scaling', 1);
 g.set_color_options('map','matlab');
 figure('Position', [100 100 1400 1000]);
 g.draw();
-g.export('file_name', 'peak_WTB_PhasicVSRepli','export_path', datapath, 'file_type', 'png');
+g.export('file_name', 'peak_WTB_session1VSRepli','export_path', datapath, 'file_type', 'png');
 
 
 %% preparation for visualization of WT.
 count = 1;
 clear peakBOLD
-nROI = length(mean(maxTIMES1_bmix1st));
+nROI = length(mean(maxTIMES1_bsession2));
 
 % blue stim control
-peakBOLD.first(count:nROI, 1)  = transpose(mean(maxTIMES1_CONTphasic))*100;
-peakBOLD.second(count:nROI, 1) = transpose(mean(maxTIMES1_CONTmix1st))*100;
+peakBOLD.first(count:nROI, 1)  = transpose(mean(maxTIMES1_CONTsession1))*100;
+peakBOLD.second(count:nROI, 1) = transpose(mean(maxTIMES1_CONTsession2))*100;
 peakBOLD.labels(count:nROI, 1) = {'blue stim'};
 peakBOLD.stim(count:nROI, 1)   = {'blue'};
 count = nROI;
 % yellow stim control
-peakBOLD.first(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2_CONTphasic))*100;
-peakBOLD.second(count+1:nROI+count, 1) = transpose(mean(maxTIMES2_CONTmix1st))*100;
+peakBOLD.first(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2_CONTsession1))*100;
+peakBOLD.second(count+1:nROI+count, 1) = transpose(mean(maxTIMES2_CONTsession2))*100;
 peakBOLD.labels(count+1:nROI+count, 1) = {'yellow stim'};
 peakBOLD.stim(count+1:nROI+count, 1)   = {'yell'}
 
@@ -189,24 +189,24 @@ g.set_text_options('base_size', 42, 'label_scaling', 1, 'legend_scaling', 1);
 g.set_color_options('map','matlab');
 figure('Position', [100 100 1400 1000]);
 g.draw();
-g.export('file_name', 'peak_WTB_PhasicVSRepli','export_path', datapath, 'file_type', 'png');
+g.export('file_name', 'peak_WTB_session1VSRepli','export_path', datapath, 'file_type', 'png');
 
 
 %% preparation for visualization of trans peak timing.
 count = 1;
 clear peakBOLD
-nROI = length(mean(maxTIMES1_bmix1st));
+nROI = length(mean(maxTIMES1_bsession2));
 
 % blue stim control
-peakBOLD.first(count:nROI, 1)  = transpose(mean(maxTIMES1id_CONTphasic)) - 20;
-peakBOLD.second(count:nROI, 1) = transpose(mean(maxTIMES1id_CONTmix1st)) - 20 ;
+peakBOLD.first(count:nROI, 1)  = transpose(mean(maxTIMES1id_CONTsession1)) - 20;
+peakBOLD.second(count:nROI, 1) = transpose(mean(maxTIMES1id_CONTsession2)) - 20 ;
 peakBOLD.labels(count:nROI, 1) = {'blue stim'};
 peakBOLD.stim(count:nROI, 1)   = {'blue'};
 peakBOLD.color(count:nROI, 1)  = 4;
 count = nROI;
 % yellow stim control
-peakBOLD.first(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2id_CONTphasic)) - 20;
-peakBOLD.second(count+1:nROI+count, 1) = transpose(mean(maxTIMES2id_CONTmix1st)) - 20;
+peakBOLD.first(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2id_CONTsession1)) - 20;
+peakBOLD.second(count+1:nROI+count, 1) = transpose(mean(maxTIMES2id_CONTsession2)) - 20;
 peakBOLD.labels(count+1:nROI+count, 1) = {'yellow stim'};
 peakBOLD.stim(count+1:nROI+count, 1)   = {'yell'}
 peakBOLD.color(count+1:nROI+count, 1)  = 2;
@@ -230,23 +230,23 @@ g.set_text_options('base_size', 42, 'label_scaling', 1, 'legend_scaling', 1);
 g.set_color_options('map','matlab');
 figure('Position', [100 100 1400 1000]);
 g.draw();
-g.export('file_name', 'peak_WTY_PhasicVSRepli','export_path', datapath, 'file_type', 'png');
+g.export('file_name', 'peak_WTY_session1VSRepli','export_path', datapath, 'file_type', 'png');
 
 %% preparation for visualization of WT peak timing.
 count = 1;
 clear peakBOLD
-nROI = length(mean(maxTIMES1_bmix1st));
+nROI = length(mean(maxTIMES1_bsession2));
 
 % blue stim control
-peakBOLD.first(count:nROI, 1)  = transpose(mean(maxTIMES1id_bphasic)) - 20;
-peakBOLD.second(count:nROI, 1) = transpose(mean(maxTIMES1id_bmix1st)) - 20 ;
+peakBOLD.first(count:nROI, 1)  = transpose(mean(maxTIMES1id_bsession1)) - 20;
+peakBOLD.second(count:nROI, 1) = transpose(mean(maxTIMES1id_bsession2)) - 20 ;
 peakBOLD.labels(count:nROI, 1) = {'blue stim'};
 peakBOLD.stim(count:nROI, 1)   = {'blue'};
 peakBOLD.color(count:nROI, 1)  = 4;
 count = nROI;
 % yellow stim control
-peakBOLD.first(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2id_yphasic)) - 20;
-peakBOLD.second(count+1:nROI+count, 1) = transpose(mean(maxTIMES2id_ymix1st)) - 20;
+peakBOLD.first(count+1:nROI+count, 1)  = transpose(mean(maxTIMES2id_ysession1)) - 20;
+peakBOLD.second(count+1:nROI+count, 1) = transpose(mean(maxTIMES2id_ysession2)) - 20;
 peakBOLD.labels(count+1:nROI+count, 1) = {'yellow stim'};
 peakBOLD.stim(count+1:nROI+count, 1)   = {'yell'}
 peakBOLD.color(count+1:nROI+count, 1)  = 2;
@@ -268,7 +268,7 @@ g.set_text_options('base_size', 42, 'label_scaling', 1, 'legend_scaling', 1);
 g.set_color_options('map','matlab');
 figure('Position', [100 100 1400 1000]);
 g.draw();
-g.export('file_name', 'peak_WTY_PhasicVSRepli','export_path', datapath, 'file_type', 'png');
+g.export('file_name', 'peak_WTY_session1VSRepli','export_path', datapath, 'file_type', 'png');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % visualization of fluctuation of brain peaks based on BOLD peaks
@@ -281,9 +281,9 @@ roipath           = '/ROIs';
 [ROIname]         = ExtROIname(fullfile(pwd,roipath));
 nROI = length(ROIname);
 
-val                 = (maxTIMES1_bphasic)*100;
+val                 = (maxTIMES1_bsession1)*100;
 [nSUB, nROI]        = size(val);
-[sorted,peakINDICE]     = sort(mean(maxTIMES1_bphasic));
+[sorted,peakINDICE]     = sort(mean(maxTIMES1_bsession1));
 sortedval           = val(:,peakINDICE);
 sortedval           = reshape(transpose(sortedval), nSUB*nROI, 1);
 sortROIname         = ROIname(peakINDICE);
@@ -303,7 +303,7 @@ COPE.groups = groups;
 
 %% 3. Plot results
 
-savename = 'Phasic_BOLD_blueVSyellow_peaks';
+savename = 'session1_BOLD_blueVSyellow_peaks';
 savepath = fullfile(pwd, 'figures/FigureS8');
 
 % plot violinplot
@@ -338,9 +338,9 @@ gf.export('file_name', savename, 'export_path', savepath, 'file_type', 'png')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear val sortedval groups roi
 
-val                 = (maxTIMES1_bmix1st)*100;
+val                 = (maxTIMES1_bsession2)*100;
 [nSUB, nROI]        = size(val);
-[sorted,peakINDICE]     = sort(mean(maxTIMES1_bphasic));
+[sorted,peakINDICE]     = sort(mean(maxTIMES1_bsession1));
 sortedval           = val(:,peakINDICE);
 sortedval           = reshape(transpose(sortedval), nSUB*nROI, 1);
 sortROIname         = ROIname(peakINDICE);
@@ -360,7 +360,7 @@ COPE.groups = groups;
 
 %% 3. Plot results
 
-savename = 'Phasic_BOLD_blueVSyellow_peaks2';
+savename = 'session1_BOLD_blueVSyellow_peaks2';
 savepath = fullfile(pwd, '/figures/FigureS8');
 
 % plot violinplot
@@ -395,15 +395,15 @@ gf.export('file_name', savename, 'export_path', savepath, 'file_type', 'png')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear val sortedval groups roi
 
-ROIpath           = '/Volumes/HD-ADU3/tphskk/analysis_programs/optofMRIAnalysis/ROIs2';
-ROIlist           = makeList(ROIpath, 'ID*.nii');
-roipath           = '/Volumes/HD-ADU3/tphskk/analysis_programs/optofMRIAnalysis/ROIs2';
-[ROIname]         = ExtROIname(roipath);
+ROIpath           = '/ROIs';
+ROIlist           = makeList(fullfile(pwd, ROIpath), 'ID*.nii');
+roipath           = '/ROIs';
+[ROIname]         = ExtROIname(fullfile(pwd,roipath));
 nROI = length(ROIname);
 
-val                 = (maxTIMES1id_bane2nd)-20;
+val                 = (maxTIMES1id_bsession4)-20;
 [nSUB, nROI]        = size(val);
-[sorted,INDICE]     = sort(mean(maxTIMES1id_bane2nd-20));
+[sorted,INDICE]     = sort(mean(maxTIMES1id_bsession4-20));
 sortedval           = val(:,INDICE);
 sortedval           = reshape(transpose(sortedval), nSUB*nROI, 1);
 sortROIname         = ROIname(INDICE);
@@ -423,7 +423,7 @@ COPE.groups = groups;
 
 %% 3. Plot results
 
-savename = 'Phasic_BOLD_blueVSyellow_peaktiming';
+savename = 'session1_BOLD_blueVSyellow_peaktiming';
 savepath = fullfile(pwd, '/figures/FigureS8');
 
 % plot violinplot
@@ -456,9 +456,9 @@ gf.export('file_name', savename, 'export_path', savepath, 'file_type', 'png')
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clear val sortedval groups roi
 
-val2                 = (maxTIMES1id_bmix1st)-20;
+val2                 = (maxTIMES1id_bsession2)-20;
 [nSUB, nROI]        = size(val2);
-%[sorted,INDICE]     = sort(mean(maxTIMES1id_bmix1st-20));
+%[sorted,INDICE]     = sort(mean(maxTIMES1id_bsession2-20));
 sortedval2           = val2(:,INDICE);
 sortedval2           = reshape(transpose(sortedval2), nSUB*nROI, 1);
 sortROIname         = ROIname(INDICE);
@@ -477,7 +477,7 @@ beta.val = sortedval2;
 beta.groups = groups2;
 
 %% 3. Plot results
-savename = 'Phasic_BOLD_blueVSyellow_peaktiming_mix1st';
+savename = 'session1_BOLD_blueVSyellow_peaktiming_session2';
 
 % plot violinplot
 % plotting
@@ -509,19 +509,19 @@ gf.export('file_name', savename, 'export_path', savepath, 'file_type', 'png')
 % visualization of between peaks of BOLD and timing of BOLD.
 count = 1;
 clear peakBOLD
-nROI = length(mean(maxTIMES1_bphasic));
+nROI = length(mean(maxTIMES1_bsession1));
 savepath = fullfile(pwd, '/figures/FigureS8');
 
 % blue stim transgenic
-peakBOLD.peak(count:nROI, 1)     = transpose(mean(maxTIMES1_bphasic))*100;
-peakBOLD.timing(count:nROI, 1)    = transpose(mean(maxTIMES1id_bphasic))-20;
+peakBOLD.peak(count:nROI, 1)     = transpose(mean(maxTIMES1_bsession1))*100;
+peakBOLD.timing(count:nROI, 1)    = transpose(mean(maxTIMES1id_bsession1))-20;
 peakBOLD.labels(count:nROI, 1)    = {'first'};
 peakBOLD.stim(count:nROI, 1)      = {'blue (first)'};
 peakBOLD.color(count:nROI, 1)     = 4;
 count = nROI;
 % yellow stim transgenic
-peakBOLD.peak(count+1:nROI+count, 1)  = transpose(mean(maxTIMES1_bmix1st))*100;
-peakBOLD.timing(count+1:nROI+count, 1) = transpose(mean(maxTIMES1id_bmix1st))-20;
+peakBOLD.peak(count+1:nROI+count, 1)  = transpose(mean(maxTIMES1_bsession2))*100;
+peakBOLD.timing(count+1:nROI+count, 1) = transpose(mean(maxTIMES1id_bsession2))-20;
 peakBOLD.labels(count+1:nROI+count, 1) = {'second'};
 peakBOLD.stim(count+1:nROI+count, 1)   = {'blue (second)'};
 peakBOLD.color(count+1:nROI+count, 1)  = 2;
