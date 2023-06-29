@@ -5,12 +5,12 @@ addpath(fullfile(pwd, '/programs'))
 
 %% contrast between anesthesia 1st and 2nd
 % Anesthesia 1st
-datapath = fullfile(pwd, '/data/session3');
+datapath1 = fullfile(pwd, '/data/session3');
 listing_tph1 = makeList(datapath1, '*TPH*');
 listing_cont1 = makeList(datapath1, '*WT*');
 
 % Anesthesia 2nd
-datapath = fullfile(pwd, '/data/session4');
+datapath2 = fullfile(pwd, '/data/session4');
 listing_tph2 = makeList(datapath2, '*TPH*');
 listing_cont2 = makeList(datapath2, '*WT*');
 
@@ -72,5 +72,5 @@ colors = {[0.7294, 0.3333, 0.8275], [0.9216,0.7294,0.1020]};
 %% visualization of statistical results.
 % mean BOLD signals,
 [sig_meanB, pvals_meanB] = ttest(meanTIME_TPH_B_ane1st, meanTIME_TPH_B_ane2nd);
-MC_sig_meanBOLD_B      = fdr_bh(pvals_meanB)
+[MC_sig_meanBOLD_B, ~, ~, MC_pval_meanBOLD_B] = fdr_bh(pvals_meanB)
 ROIname(MC_sig_meanBOLD_B)

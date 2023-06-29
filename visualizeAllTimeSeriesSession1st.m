@@ -90,7 +90,7 @@ colors = {'r', 'b'};
 % visualize and save the cont group
 % Supplementary Figure S6
 colors = {'k', 'g'};
-[AUC_TPH_Y, AUC_CONT_Y, meanTIME_TPH_Y_phasic, meanTIME_CONT_Y_phasic, maxTIMES_TPH_Y, maxTIMES_CONT_Y, Pvalus_TPHvsCONT_y] = notvisualizeBOLDresponses(BOLDresponse_tphy, BOLDresponse_conty, ROIname, resultpath_vsy, colors,'different', stim);
+[AUC_TPH_Y, AUC_CONT_Y, meanTIME_TPH_Y_phasic, meanTIME_CONT_Y_phasic, maxTIMES_TPH_Y, maxTIMES_CONT_Y, Pvalus_TPHvsCONT_y] = visualizeBOLDresponses(BOLDresponse_tphy, BOLDresponse_conty, ROIname, resultpath_vsy, colors,'different', stim);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % contrast between mean values of BOLD signals
@@ -117,8 +117,8 @@ ROIname(MC_pvals_meanBOLDBY)
 % mean BOLD signals, TPH Yellow vs. CONT Yellow
 % Supplementary Figure S6
 [sig_meanY, pvals_meanY] = ttest2(meanTIME_TPH_Y_phasic, meanTIME_CONT_Y_phasic);
-MC_pvals_meanBOLDY        = fdr_bh(pvals_meanY)
-ROIname(MC_pvals_meanBOLDY)
+[MC_sig_meanBOLDY,~,~,MC_pval_meanBOLDY] = fdr_bh(pvals_meanY)
+ROIname(MC_sig_meanBOLDY)
 
 
 %% peaks loc and max AUC of statistical results.
