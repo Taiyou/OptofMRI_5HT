@@ -89,7 +89,7 @@ For this study, we introduced the following software tools.
   </tr>
   <tr>
     <td>8</td>
-    <td>MATLAB</td>
+    <td>MATLAB2020b</td>
     <td>MathWorks</td>
     <td>Main analyses and data visualization</td>
     <td>https://mathworks.com/</td>  
