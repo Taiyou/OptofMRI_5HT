@@ -1,3 +1,5 @@
+% runn all codes for the study
+
 main_COPE_session1_TestandPlot
 main_COPE_session34_TestandPlot
 main_corr5HTprojAndCOPE

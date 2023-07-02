@@ -1,4 +1,4 @@
-%
+% This program is to contrast between session 3 and session4.
 %
 %
 %
@@ -27,7 +27,7 @@ fdr_bh(b_meanT_WTby)
 %% TPH
 %% blue, TPH, session 3 vs. 4
 [sig_meanT_tphb, b_meanT_tphb]    = ttest(meanTIME_TPH_B_session3 - meanTIME_TPH_B_session4);
-fprintf('mean BOLD of blue stimulation of wild-type mice \n');
+fprintf('mean BOLD of blue stimulation of transgenic mice \n');
 [~,~,~, pval_b_meanT_tphb] = fdr_bh(b_meanT_tphb)
 ROIname(fdr_bh(b_meanT_tphb))
 

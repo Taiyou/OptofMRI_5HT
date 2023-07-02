@@ -1,3 +1,11 @@
+% This program is intended to extract
+%
+% 
+% time series of BOLD signals from session3(anesthesia)
+%
+%
+% by Hiro Taiyo Hamada, Araya Inc.
+
 %close all; clear all;
 addpath(fullfile(pwd, '/programs'))
 
@@ -43,7 +51,7 @@ stim = 1:5;
 
 % visualize and save the tph group
 colors = {'g', 'b'};
-[AUC_TPH_B_session3, AUC_TPH_Y_session3, meanTIME_TPH_B_session3, meanTIME_TPH_Y_session3,  maxTIMES_TPH_B_session3, maxTIMES_TPH_Y_session3, Pvalus_TPH_BvsY_session3] = notvisualizeBOLDresponses(BOLDresponse_tphb, BOLDresponse_tphy, ROIname, resultpath_tph_session3,colors, 'same', stim);
+[AUC_TPH_B_session3, AUC_TPH_Y_session3, meanTIME_TPH_B_session3, meanTIME_TPH_Y_session3,  maxTIMES_TPH_B_session3, maxTIMES_TPH_Y_session3, Pvalus_TPH_BvsY_session3] = visualizeBOLDresponses(BOLDresponse_tphb, BOLDresponse_tphy, ROIname, resultpath_tph_session3,colors, 'same', stim);
 % visualize and save the cont group
 colors = {'k', 'r'};
 [AUC_CONT_B_session3, AUC_CONT_Y_session3, meanTIME_CONT_B_session3, meanTIME_CONT_Y_session3, maxTIMES_CONT_B_session3, maxTIMES_CONT_Y_session3, Pvalus_CONT_BvsY_session3]  = notvisualizeBOLDresponses(BOLDresponse_contb, BOLDresponse_conty, ROIname, resultpath_cont_session3, colors, 'same', stim);
@@ -64,7 +72,7 @@ close all;
 MC_pvals_AUC             = fdr_bh(pvals_AUC);
 
 % mean BOLD signals,
-[sig_meanB, pvals_meanB] = ttest2(meanTIME_TPH_B_session3,meanTIME_CONT_B_session3);
+[sig_meanB, pvals_meanB] = ttest2(meanTIME_TPH_B_session3,meanTIME_TPH_Y_session3);
 MC_pvals_meanBOLD        = fdr_bh(pvals_meanB);
 
 % Peaks BOLD signals, 

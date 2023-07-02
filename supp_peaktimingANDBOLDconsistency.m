@@ -1,3 +1,9 @@
+% This program is to contrast peak and timing of BOLD across session 1 vs.2
+%
+%
+%
+% by Hiro Taiyo Hamada, Araya Inc.
+
 clear all; close all;
 
 visualizeAllTimeSeriesSession1st

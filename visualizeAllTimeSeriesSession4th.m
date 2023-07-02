@@ -1,3 +1,11 @@
+% This program is intended to extract
+%
+% 
+% time series of BOLD signals from session4(awake)
+%
+%
+% by Hiro Taiyo Hamada, Araya Inc.
+
 %close all; clear all;
 
 addpath(fullfile(pwd, '/programs'))

@@ -1,4 +1,11 @@
-
+% This program is intended to extract
+%
+% 
+% 1. extract time series of BOLD signals from session3 and 4
+% 2. contract between sessions
+%
+%
+% by Hiro Taiyo Hamada, Araya Inc.
 
 addpath(fullfile(pwd, '/programs'))
 
@@ -54,8 +61,8 @@ roipath           = '/ROIs';
 [ROIname]         = ExtROIname(fullfile(pwd,roipath));
 
 % result path
-resultpath_vsb = fullfile(pwd, '/figures/FigureS11/TPHvsCont_blue');
-resultpath_vsy = fullfile(pwd, '/figures/FigureS11/TPHvsCont_yellow');
+resultpath_vsb = fullfile(pwd, '/figures/FigureS11/Session3vsSession4_blue');
+resultpath_vsy = fullfile(pwd, '/figures/FigureS11/Session3vsSession4_yellow');
 mkdir(resultpath_vsb);
 mkdir(resultpath_vsy);
 

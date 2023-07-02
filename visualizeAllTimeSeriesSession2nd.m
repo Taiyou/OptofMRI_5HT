@@ -1,9 +1,10 @@
-% this program is meant to caluclate the MIX1 data,
+% This program is intended to extract
+%
+% 
+% time series of BOLD signals from session2
 %
 %
-%
-%
-% by Hiro Taiyo Hamada,
+% by Hiro Taiyo Hamada, Araya Inc.
 
 addpath(fullfile(pwd, '/programs'))
 

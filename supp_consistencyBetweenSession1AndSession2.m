@@ -1,4 +1,4 @@
-% this program is to check the consistency between sessions 1-2.
+% This program is to check the consistency between sessions 1-2.
 %
 % by Hiro taiyo Hamada, Araya Inc.
 
