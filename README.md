@@ -12,10 +12,10 @@ Findings of the works
 
 ## Experiments
 The experiment is composed of four sessions.
-- session 1. in awake state 
-- session 2. in awake state (replication)
-- session 3. in anesthesia
-- session 4. in awake state
+- Session 1. in awake state 
+- Session 2. in awake state (replication)
+- Session 3. in anesthesia
+- Session 4. in awake state
 
 <img width="1062" alt="スクリーンショット 2022-08-08 12 20 33" src="https://user-images.githubusercontent.com/2386591/183331826-1c81c660-2095-46f1-b9bc-14715fc2956c.png">
 
@@ -112,8 +112,7 @@ https://doi.org/10.34973/raa0-5z29</td>
 </table>
 
 # Program
-Please install and make a path to [Gram](https://github![image](https://github.com/Taiyou/OptofMRI_5HT/assets/2386591/cd0d9a6d-4d76-4122-b257-8dee2d9b82be)
-.com/piermorel/gramm) prior to running the codes.
+Please install and make a path to [Gramm]([https://github.com/Taiyou/OptofMRI_5HT/](https://github.com/piermorel/gramm)) prior to running the codes.
 
 ```MATLAB
 % check if all codes are functional.
