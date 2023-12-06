@@ -112,7 +112,7 @@ https://doi.org/10.34973/raa0-5z29</td>
 </table>
 
 # Program
-Please install and make a path to [Gramm]([https://github.com/Taiyou/OptofMRI_5HT/](https://github.com/piermorel/gramm)) prior to running the codes.
+Please install and make a path to [Gramm](https://github.com/piermorel/gramm) prior to running the codes.
 
 ```MATLAB
 % check if all codes are functional.
