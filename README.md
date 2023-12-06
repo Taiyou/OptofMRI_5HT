@@ -158,7 +158,12 @@ supp_consistencyBetweenSession1AndSession2
 supp_peaktimingANDBOLDconsistency
 ```
 
-10. Supplementary Figure S13
+10. Supplementary Figure S14
+```MATLAB
+suppS14_extraction_TSdata_madino
+```
+
+11. Supplementary Figure S15
 
 - 5HTR_correlation_plot.ipynb
 
