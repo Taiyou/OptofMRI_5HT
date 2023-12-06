@@ -6,37 +6,21 @@
 
 close all; clear all; 
 
+addpath(fullfile(pwd, '/programs'));
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % data preparation
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% datapath
-data_path = '/Volumes/HD-ADU3/replication_optofMRI/TS';
-listing_data = makeList(data_path, 'data*');
-listing_design = makeList(data_path, 'design*.txt');
-
-% roi path
-roipath = '/Volumes/HD-ADU3/replication_optofMRI/ROIs';
-listing_roi = makeList(roipath, 'ID*_*.nii');
-
 % result path
-resultpath = '/Volumes/HD-ADU3/replication_optofMRI/resutls';
 resultpath_madino = fullfile(pwd, '/figures/FigureS14/');
+mkdir(resultpath_madino);
 
 % extract the BOLD signals from tph subjects.
-%[BOLDtimeSeries_madino] = BOLDresponseCondition_madino(listing_data, listing_roi);
-tempdata = load('/Users/hirotaiyohamada/Desktop/OptofMRI_5HT-main/Mandino2022/TS/data_madino_data.mat');
+tempdata = load(fullfile(pwd, 'Mandino2022/TS/data_madino_data.mat'));
 tempdata_timeseries = tempdata.timeseries;
 timeseries = tempdata_timeseries {1};
 
-%here is original data to store 
-%splitName = strsplit(listing_data(1).name, '/');
-%outputname = strcat(splitName{length(splitName)}, '.mat');
-%resultname = fullfile(resultpath, outputname);
-    
-% save files
-%save(resultname, 'timeseries');
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % align stimulation timing
