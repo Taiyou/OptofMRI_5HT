@@ -22,7 +22,7 @@ listing_roi = makeList(roipath, 'ID*_*.nii');
 
 % result path
 resultpath = '/Volumes/HD-ADU3/replication_optofMRI/resutls';
-resultpath_madino = fullfile(pwd, '/figures/FigureS20/');
+resultpath_madino = fullfile(pwd, '/figures/FigureS14/');
 
 % extract the BOLD signals from tph subjects.
 %[BOLDtimeSeries_madino] = BOLDresponseCondition_madino(listing_data, listing_roi);
