@@ -105,7 +105,7 @@ For this study, we introduced the following software tools.
     <td>10</td>
     <td>A CBV opfMRI dataset</td>
     <td>Joanes Grandjean</td>
-    <td>Analysis for functional maps![image](https://github.com/Taiyou/OptofMRI_5HT/assets/2386591/f7faa366-afcd-4e9a-83ba-0fb00b422ff6)</td>
+    <td>Analysis for functional maps</td>
     <td>https://doi.org/10.18112/openneuro.ds001541.v1.1.2
 https://doi.org/10.34973/raa0-5z29</td>  
   </tr> 
