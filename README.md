@@ -176,7 +176,7 @@ suppS14_extraction_TSdata_madino
 
 - 5HTR_correlation_plot.ipynb
 
-11. Appendix
+12. Appendix
 ```MATLAB
 % Motion Artefacts
 cd motion_artefacts
