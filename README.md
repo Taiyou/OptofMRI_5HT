@@ -1,4 +1,4 @@
-# OptofMRI5HT [Hamada et al., bioRxiv, 2022]
+# OptofMRI5HT [Hamada et al., bioRxiv, 2022, accepted in principle]
 This is the code repository for the project about optogenetic fMRI stimulating dorsal raphe serotonin neurons [Hamada et al., 2022].
 
 Findings of the works
@@ -23,6 +23,8 @@ The experiment is composed of four sessions.
 - 1. Time Series of each session
 - 2. beta values of each session
 - 3. ROIs: 28 Regions of Interest (ROIs)
+
+(Raw data will be available from Openneuro soon.)
 
 ## Prerequisite
 For this study, we introduced the following software tools.
