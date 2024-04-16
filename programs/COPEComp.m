@@ -21,7 +21,7 @@ Pvalues_cope = zeros(nROI,1);
 for iroi = 1:nROI,
 
 	% comparison between two groups
-	[sig(iroi), Pvalues_cope(iroi,1)] = ttest2(COPE1(:, iroi), COPE2(:, iroi));
+	[sig(iroi), Pvalues_cope(iroi,1)] = ttest(COPE1(:, iroi), COPE2(:, iroi));
 
 	fprintf('ROI: %s, Pvalues for COPE = %f \n\n', ROInames{iroi}, Pvalues_cope(iroi,1));
 end
