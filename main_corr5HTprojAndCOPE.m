@@ -5,8 +5,11 @@
 %
 % by Hiro Taiyo Hamada, 2020/12/17
 
-close all;
 clear all;
+close all;
+
+addpath(fullfile(pwd, '/programs'))
+
 
 % 1. extraction of 5HT receptors
 niftidirect = fullfile(pwd, '/5HTR');
@@ -446,7 +449,7 @@ error(:, 3) = std(transpose(b3));
 error(:, 4) = std(transpose(b4));
 
 % visualize the weights 
-supple_weight5HT(htR, error)
+plot_receptor_weights(b1,b2,b3,b4)
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 4.3. Summary of Statistics of regression 
