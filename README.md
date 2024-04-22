@@ -1,7 +1,6 @@
 # OptofMRI5HT [Hamada et al., bioRxiv, 2022, accepted in principle]
 This is the code repository for the project about optogenetic fMRI stimulating dorsal raphe serotonin neurons [Hamada et al., 2022].
-The dataset is also available from Openneuro [(optofMRI_DRN
-)](https://openneuro.org/datasets/ds005077) 
+The dataset is also available from Openneuro [(project ID: optofMRI_DRN)](https://openneuro.org/datasets/ds005077) 
 
 Findings of the works
 1. Functional map of serotonergic activation by optogenetics, including reward-related network
