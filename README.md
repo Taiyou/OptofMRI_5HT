@@ -1,5 +1,5 @@
-# OptofMRI5HT [Hamada et al., bioRxiv, 2022, accepted in principle]
-This is the code repository for the project about optogenetic fMRI stimulating dorsal raphe serotonin neurons [Hamada et al., 2022].
+# OptofMRI5HT [Hamada et al., Nat Commu, 2024]
+This is the code repository for the project about optogenetic fMRI stimulating dorsal raphe serotonin neurons [Hamada et al., Nat Commu, 2024].
 The dataset is also available from Openneuro [(project ID: optofMRI_DRN)](https://openneuro.org/datasets/ds005077) 
 
 Findings of the works
@@ -193,4 +193,4 @@ run_comparison_ane1stVSane2nd
 1. Spisák, T., Spisák, Z., Zunhammer, M., Bingel, U., Smith, S., Nichols, T., & Kincses, T. (2019). Probabilistic TFCE: A generalized combination of cluster size and voxel intensity to increase statistical power. NeuroImage, 185, 12–26. https://doi.org/10.1016/j.neuroimage.2018.09.078
 2. Hikishima, K., Komaki, Y., Seki, F., Ohnishi, Y., Okano, H. J., & Okano, H. (2017). In vivo microscopic voxel-based morphometry with a brain template to characterize strain-specific structures in the mouse brain. Scientific reports, 7(1), 85. https://doi.org/10.1038/s41598-017-00148-1
 3. Morel, (2018). Gramm: grammar of graphics plotting in Matlab. Journal of Open Source Software, 3(23), 568, https://doi.org/10.21105/joss.00568
-4. Hamada H.T., Abe Y.,  Takata N., Taira M, Tanaka F.K., and Doya K. Optogenetic activation of dorsal raphe serotonin neurons induces brain-wide activation, including reward-related circuits. bioXiv. [https://www.biorxiv.org/content/10.1101/2022.08.07.503074v1](https://www.biorxiv.org/content/10.1101/2022.08.07.503074v1)
+4. Hamada H.T.*, Abe Y.,  Takata N., Taira M, Tanaka F.K., and Doya K*. Optogenetic activation of dorsal raphe serotonin neurons induces brain-wide activation. Nat Commu, 15, 4152. https://doi.org/10.1038/s41467-024-48489-6 [Preprint](https://www.biorxiv.org/content/10.1101/2022.08.07.503074v6) [Dataset](https://openneuro.org/datasets/ds005077) [Codes](https://github.com/Taiyou/OptofMRI_5HT)
