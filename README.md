@@ -1,4 +1,7 @@
 # OptofMRI5HT [Hamada et al., Nat Commu, 2024]
+
+[Summary by DeepWiki](https://deepwiki.com/Taiyou/OptofMRI_5HT/1-overview)
+
 This is the code repository for the project about optogenetic fMRI stimulating dorsal raphe serotonin neurons [Hamada et al., Nat Commu, 2024].
 The dataset is also available from Openneuro [(project ID: optofMRI_DRN)](https://openneuro.org/datasets/ds005077) 
 
