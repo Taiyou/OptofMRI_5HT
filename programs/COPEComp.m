@@ -1,15 +1,40 @@
-function [Pvalues_cope] = COPEComp(COPE1,COPE2, ROInames)
-% This program is intended to extract constrast of parameter estimate and comparison between two contrasts.
-% 
-% input:
-%	COPE1: contrast datasets1
-%	COPE2: contrast datasets2
-%	ROInames: a list of name of ROI list.
+function [Pvalues_cope] = COPEComp(COPE1, COPE2, ROInames)
+% COPEComp - Statistical comparison of COPE values between two conditions
 %
-% output:
-%	Pvalues_cope: comparison between COPE1 and COPE2 per ROI
+% This function performs paired t-tests comparing COPE (Contrast of 
+% Parameter Estimates) values between two experimental conditions for
+% each ROI. Used to assess significant differences in neural activation.
 %
-% by Hiroaki Hamada, Araya Inc., 2019/10/15th
+% Syntax:
+%   [Pvalues_cope] = COPEComp(COPE1, COPE2, ROInames)
+%
+% Input:
+%   COPE1    - [nSub x nROI] matrix of COPE values for condition 1
+%              e.g., blue light stimulation
+%
+%   COPE2    - [nSub x nROI] matrix of COPE values for condition 2
+%              e.g., yellow light control
+%
+%   ROInames - {1 x nROI} cell array of ROI names for reporting
+%              e.g., {'FP', 'OFC', 'mPFC', ...}
+%
+% Output:
+%   Pvalues_cope - [nROI x 1] vector of p-values from paired t-tests
+%                  Should be corrected for multiple comparisons using fdr_bh
+%
+% Notes:
+%   - Uses paired t-test (same subjects across conditions)
+%   - Prints results to console for each ROI
+%   - Apply FDR correction: fdr_bh(Pvalues_cope) for significance
+%
+% Example:
+%   [pvals] = COPEComp(COPE_blue, COPE_yellow, ROIname);
+%   sig_ROIs = ROIname(fdr_bh(pvals));  % FDR-corrected significant ROIs
+%
+% See also: ttest, fdr_bh, extCOPE
+%
+% Author: Hiroaki Hamada, Araya Inc.
+% Date: 2019/10/15
 
 % the number of ROIs
 nROI = length(ROInames);

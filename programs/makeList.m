@@ -1,13 +1,45 @@
 function [listing] = makeList(path, header)
-% makeLists for a folder
-% This program is intended to do make a list of path
+% makeList - Create a list of files matching a pattern in a directory
 %
-% usage: listing = makeList(path);
-% path: path to the directory which has data sets
-% header: header of file names
-% eg. listing = makeList(pwd, '*');
+% This utility function generates a structure array of file paths
+% matching a specified pattern. Used throughout the analysis pipeline
+% to locate data files, ROI masks, and contrast maps.
 %
-% by Hiroaki Hamada, 2015/Nov/06
+% Syntax:
+%   [listing] = makeList(path, header)
+%
+% Input:
+%   path   - String path to directory containing target files
+%            e.g., '/data/session1' or fullfile(pwd, '/ROIs')
+%
+%   header - Wildcard pattern for filename matching
+%            e.g., '*TPH*' for transgenic subjects
+%            e.g., 'ID*.nii' for ROI masks
+%            e.g., '*.mat' for all .mat files
+%
+% Output:
+%   listing - Structure array with fields:
+%             .name - Full path to each matching file
+%             .date, .bytes, .isdir, etc. (from dir())
+%
+% Examples:
+%   % List all TPH subject files
+%   listing_tph = makeList('/data/session1', '*TPH*');
+%
+%   % List all ROI mask files
+%   ROIlist = makeList('/ROIs', 'ID*.nii');
+%
+%   % List all .mat files in current directory
+%   matfiles = makeList(pwd, '*.mat');
+%
+% Notes:
+%   - Returns full paths (path + filename) in .name field
+%   - Uses MATLAB's dir() function internally
+%
+% See also: dir, fullfile, ExtROIname
+%
+% Author: Hiroaki Hamada
+% Date: 2015/Nov/06
 
 % make a list of files in a folder
 listing = dir(fullfile(path, header));

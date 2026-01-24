@@ -1,4 +1,39 @@
-function [] = visualizeContrastMadinoHamada2(val1, val2, val3, texts, color)
+function [] = visualizeContrastMadinoHamada1(val1, val2, val3, texts, color)
+% visualizeContrastMadinoHamada1 - Compare CBV and BOLD responses with Mandino dataset
+%
+% This function creates scatter plots comparing optogenetic fMRI responses
+% between the current study and the Mandino et al. (2022) CBV-fMRI dataset.
+% Used for validation of activation patterns across different imaging modalities.
+%
+% Syntax:
+%   visualizeContrastMadinoHamada1(val1, val2, val3, texts, color)
+%
+% Input:
+%   val1   - [nROI x 1] First comparison variable (x-axis for both plots)
+%            e.g., BOLD peaks from current study
+%
+%   val2   - [nROI x 1] CBV peaks from Mandino/Grandjean dataset
+%
+%   val3   - [nROI x 1] BOLD peaks from Session 3 (anesthesia)
+%
+%   texts  - {1 x 4} cell array of plot labels:
+%            texts{1}: x-axis label
+%            texts{2}: y-axis label  
+%            texts{3}: output filename
+%            texts{4}: save path
+%
+%   color  - [2 x 3] RGB color matrix for the two data series
+%
+% Output:
+%   PNG figure saved to texts{4}/texts{3}.png
+%
+% Notes:
+%   - Used for Supplementary Figure S14
+%   - Requires Gramm toolbox for visualization
+%
+% See also: visualizeContrastMadinoHamada2, suppS14_extraction_TSdata_madino
+%
+% Author: Hiro Taiyo Hamada
 
 % preparation for the 
 count = 1;
