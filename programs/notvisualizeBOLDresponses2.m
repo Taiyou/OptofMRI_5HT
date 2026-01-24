@@ -73,9 +73,9 @@ for iroi = 1:nROI,
     end
     
     
-    if strcmp(type, 'same'),
-        [Pvalues(iroi), sig] = ranksum(temptimemean1, temptimemean2);
-    else
-        [Pvalues(iroi), sig] = ranksum(temptimemean1, temptimemean2);
-    end
+    % Statistical test: Mann-Whitney U test (Wilcoxon rank sum)
+    % Note: 'type' parameter ('same'/'different') was intended to switch between
+    % paired and unpaired tests, but currently both use ranksum (unpaired).
+    % For paired comparisons (same subjects), consider using signrank instead.
+    [Pvalues(iroi), ~] = ranksum(temptimemean1, temptimemean2);
 end
